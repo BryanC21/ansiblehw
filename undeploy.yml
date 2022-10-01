@@ -1,0 +1,12 @@
+- name: Web Server Undeploy Playbook
+  hosts: ansible-hosts
+  tasks:
+    - name: stop httpd
+      service:
+        name: apache2
+        enabled: false
+        state: stopped
+    - name: uninstall httpd
+      package:
+        name: apache2
+        state: absent
